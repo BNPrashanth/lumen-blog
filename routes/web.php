@@ -22,3 +22,17 @@ $router->get('/page1', function () use ($router) {
 $router->post('/data/1', function () use ($router) {
     return "{\"data\": 111}";
 });
+
+$router->group(['prefix' => 'api/v1'], function ($router) {
+
+    $router->post('posts/add', 'PostsController@createPost');
+
+    $router->get('posts/view/{id}', 'PostsController@viewPost');
+
+    $router->put('posts/update/{id}', 'PostsController@updatePost');
+
+    $router->delete('posts/delete/{id}', 'PostsController@deletePost');
+
+    $router->get('posts/index', 'PostsController@index');
+
+});

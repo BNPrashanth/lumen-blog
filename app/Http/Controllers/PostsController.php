@@ -14,6 +14,13 @@ class PostsController extends Controller
         return response()->json($post);
     }
 
+    public function viewPost($id)
+    {
+        $post = Post::find($id);
+
+        return response()->json($post);
+    }
+
     public function updatePost(Request $request, $id)
     {
         $post = Post::find($id);
